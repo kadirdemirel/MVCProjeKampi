@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<div class="card" style="width:20rem; background-color:darkorange; height:10rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:1.3rem;">Toplam Kategori Sayısı</h5>
+
+        <p class="card-text">@ViewBag.deger</p>
+
+    </div>
+</div>
+<div class="card" style="width:20rem; background-color:lightblue; height:10rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:1.3rem;">Başlık tablosunda "yazılım" kategorisine ait başlık sayısı</h5>
+
+        <p class="card-text">@ViewBag.deger1</p>
+
+    </div>
+</div>
+<div class="card" style="width:20rem; background-color:burlywood; height:10rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:1.3rem;">Yazar adında 'a' harfi geçen yazar sayısı</h5>
+
+        <p class="card-text">@ViewBag.deger2</p>
+
+    </div>
+</div>
+<div class="card" style="width:20rem; background-color:greenyellow; height:10rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:1.3rem;">En fazla başlığa sahip kategori adı</h5>
+
+        <p class="card-text">@ViewBag.deger3</p>
+
+    </div>
+</div>
+<div class="card" style="width:20rem; background-color:lightpink; height:10rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:1.3rem;">
+            Kategori tablosunda durumu true olan kategoriler ile false olan kategoriler arasındaki sayısal fark
+        </h5>
+
+        <p class="card-text">@ViewBag.deger4</p>
+
+    </div>
+</div>

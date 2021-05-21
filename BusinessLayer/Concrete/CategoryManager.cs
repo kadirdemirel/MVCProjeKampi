@@ -23,28 +23,36 @@ namespace BusinessLayer.Concrete
             _categoryDal.Insert(category);
         }
 
-        //GenericRepository<Category> repo = new GenericRepository<Category>();
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
 
-        //public List<Category> GetAll()
-        //{
-        //    return repo.List();
-        //}
+        public void CategoryEdit(Category category)
+        {
+            _categoryDal.Update(category);
+        }
 
-        //public void CategoryAddBL(Category category)
-        //{
-        //    repo.Insert(category);
-        //    if (category.CategoryName == "" || category.CategoryName.Length <= 3 || category.CategoryDescription == "" || category.CategoryName.Length >= 51)
-        //    {
-        //        //hata mesajı
-        //    }
-        //    else
-        //    {
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
 
-        //    }
-        //}
+        public Category GetById(int categoryId)
+        {
+            return _categoryDal.Get(r => r.CategoryID == categoryId);
+        }
+
         public List<Category> GetList()
         {
             return _categoryDal.List();
+        }
+
+        public int TotalCategory(int categoryId)
+        {
+        return  _categoryDal.List(r => r.CategoryID == categoryId).Count();
+         
+
         }
     }
 }

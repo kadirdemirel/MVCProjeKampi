@@ -72,6 +72,14 @@
     <Compile Include="Migrations\202104161141243_mig1.designer.cs">
       <DependentUpon>202104161141243_mig1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105211017599_mig_writer_edit.cs" />
+    <Compile Include="Migrations\202105211017599_mig_writer_edit.designer.cs">
+      <DependentUpon>202105211017599_mig_writer_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105211124517_mig_writer_title.cs" />
+    <Compile Include="Migrations\202105211124517_mig_writer_title.designer.cs">
+      <DependentUpon>202105211124517_mig_writer_title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +96,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104161141243_mig1.resx">
       <DependentUpon>202104161141243_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105211017599_mig_writer_edit.resx">
+      <DependentUpon>202105211017599_mig_writer_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105211124517_mig_writer_title.resx">
+      <DependentUpon>202105211124517_mig_writer_title.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
