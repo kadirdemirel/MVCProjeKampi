@@ -12,6 +12,7 @@ namespace MVCProjeKampi.Controllers
     {
         ContentManager contentManager = new ContentManager(new EfContentDal());
         // GET: Content
+        
         public ActionResult Index()
         {
             return View();

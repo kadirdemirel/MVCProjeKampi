@@ -14,6 +14,7 @@ namespace MVCProjeKampi.Controllers
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
+
         // GET: Heading
         public ActionResult Index()
         {
