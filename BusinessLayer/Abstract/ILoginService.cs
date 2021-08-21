@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface ILoginService
     {
         void Login(Admin admin);
+      
     }
 }

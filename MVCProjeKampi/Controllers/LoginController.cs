@@ -12,7 +12,7 @@ namespace MVCProjeKampi.Controllers
 {
     public class LoginController : Controller
     {
-       // LoginManager loginManager = new LoginManager();
+        LoginManager loginManager = new LoginManager();
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -22,24 +22,35 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-
-            Context context = new Context();
-            var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-            if (adminUserInfo != null)
+            try
             {
-                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
-                Session["AdminUserName"] = adminUserInfo.AdminUserName;//Oturum yönetimi 
+                loginManager.Login(admin);
                 return RedirectToAction("Index", "AdminCategory");
             }
-            else
+            catch(Exception)
             {
                 return RedirectToAction("Index");
             }
             return View();
 
-       
-          
+            //Context context = new Context();
+            //var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+            //if (adminUserInfo != null)
+            //{
+            //    FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
+            //    Session["AdminUserName"] = adminUserInfo.AdminUserName;//Oturum yönetimi 
+
+            //}
+            //else
+            //{
+
+            //}
+
+
+
+
         }
+
 
     }
 }
