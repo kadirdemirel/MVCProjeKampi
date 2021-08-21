@@ -56,7 +56,11 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IStudentDal.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -67,6 +71,10 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfStudentDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104161141243_mig1.cs" />
     <Compile Include="Migrations\202104161141243_mig1.designer.cs">
@@ -79,6 +87,54 @@
     <Compile Include="Migrations\202105211124517_mig_writer_title.cs" />
     <Compile Include="Migrations\202105211124517_mig_writer_title.designer.cs">
       <DependentUpon>202105211124517_mig_writer_title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106291124432_mig_imagesizechange.cs" />
+    <Compile Include="Migrations\202106291124432_mig_imagesizechange.designer.cs">
+      <DependentUpon>202106291124432_mig_imagesizechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106291217411_mig_writer_addstatus.cs" />
+    <Compile Include="Migrations\202106291217411_mig_writer_addstatus.designer.cs">
+      <DependentUpon>202106291217411_mig_writer_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107121314569_mig_contentstatusadd.cs" />
+    <Compile Include="Migrations\202107121314569_mig_contentstatusadd.designer.cs">
+      <DependentUpon>202107121314569_mig_contentstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107121317372_mig_headingstatusadd.cs" />
+    <Compile Include="Migrations\202107121317372_mig_headingstatusadd.designer.cs">
+      <DependentUpon>202107121317372_mig_headingstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108151909432_mig_add_message.cs" />
+    <Compile Include="Migrations\202108151909432_mig_add_message.designer.cs">
+      <DependentUpon>202108151909432_mig_add_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171052232_mig_contact_adddate.cs" />
+    <Compile Include="Migrations\202108171052232_mig_contact_adddate.designer.cs">
+      <DependentUpon>202108171052232_mig_contact_adddate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171720146_mig_addimage_file.cs" />
+    <Compile Include="Migrations\202108171720146_mig_addimage_file.designer.cs">
+      <DependentUpon>202108171720146_mig_addimage_file.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108180428007_mig_admin_table.cs" />
+    <Compile Include="Migrations\202108180428007_mig_admin_table.designer.cs">
+      <DependentUpon>202108180428007_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108180958063_mig_about_add_isactivated.cs" />
+    <Compile Include="Migrations\202108180958063_mig_about_add_isactivated.designer.cs">
+      <DependentUpon>202108180958063_mig_about_add_isactivated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108210913337_add_talent.cs" />
+    <Compile Include="Migrations\202108210913337_add_talent.designer.cs">
+      <DependentUpon>202108210913337_add_talent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108210916435_add_student.cs" />
+    <Compile Include="Migrations\202108210916435_add_student.designer.cs">
+      <DependentUpon>202108210916435_add_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108211056289_add_talent_level.cs" />
+    <Compile Include="Migrations\202108211056289_add_talent_level.designer.cs">
+      <DependentUpon>202108211056289_add_talent_level.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +158,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105211124517_mig_writer_title.resx">
       <DependentUpon>202105211124517_mig_writer_title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106291124432_mig_imagesizechange.resx">
+      <DependentUpon>202106291124432_mig_imagesizechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106291217411_mig_writer_addstatus.resx">
+      <DependentUpon>202106291217411_mig_writer_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107121314569_mig_contentstatusadd.resx">
+      <DependentUpon>202107121314569_mig_contentstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107121317372_mig_headingstatusadd.resx">
+      <DependentUpon>202107121317372_mig_headingstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108151909432_mig_add_message.resx">
+      <DependentUpon>202108151909432_mig_add_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171052232_mig_contact_adddate.resx">
+      <DependentUpon>202108171052232_mig_contact_adddate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171720146_mig_addimage_file.resx">
+      <DependentUpon>202108171720146_mig_addimage_file.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180428007_mig_admin_table.resx">
+      <DependentUpon>202108180428007_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180958063_mig_about_add_isactivated.resx">
+      <DependentUpon>202108180958063_mig_about_add_isactivated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108210913337_add_talent.resx">
+      <DependentUpon>202108210913337_add_talent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108210916435_add_student.resx">
+      <DependentUpon>202108210916435_add_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108211056289_add_talent_level.resx">
+      <DependentUpon>202108211056289_add_talent_level.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

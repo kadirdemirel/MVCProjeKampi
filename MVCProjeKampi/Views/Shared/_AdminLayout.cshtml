@@ -12,7 +12,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -28,7 +28,7 @@ to get the desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" >
 
     <div class="wrapper">
         <!-- Navbar -->
@@ -58,17 +58,22 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="/AdminCategory/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
+         with font-awesome or any other icon font library -->
+                        @if (User.IsInRole("A"))
+                        {
 
-                                </p>
-                            </a>
 
-                        </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="/AdminCategory/Index/" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Kategoriler
+
+                            </p>
+                        </a>
+
+                    </li>}
+
                         <li class="nav-item">
                             <a href="/Heading/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -118,41 +123,41 @@ to get the desired effect
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/About/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
                                 <p>
                                     Hakkımızda
-                                
+
                                 </p>
                             </a>
-                        
+
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/Contact/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                   İletişim ve Mesajlar
-                                 
+                                    İletişim ve Mesajlar
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                   Yazılar
-                                 
+                                    Yazılar
+
                                 </p>
                             </a>
-                            
+
                         </li>
-                       
+
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
-                                   Yetkilendirmeler
+                                    Yetkilendirmeler
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
@@ -161,40 +166,48 @@ to get the desired effect
                             <a href="pages/gallery.html" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                  Galeri
+                                    Galeri
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/ErrorPage/Page404/" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                  Hata Sayfaları
-                                   
+                                    Hata Sayfaları
+
                                 </p>
                             </a>
-                            
+
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Student/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                   Yetenek Kartı
+                                </p>
+                            </a>
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
-                               Siteye Git                                  
+                                    Siteye Git
                                 </p>
                             </a>
-                     
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>
-                                   Çıkış Yap
-                               
+                                    Çıkış Yap
+
                                 </p>
                             </a>
-                        
+
                         </li>
-                      
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -203,7 +216,7 @@ to get the desired effect
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background-color:transparent">
             <!-- Content Header (Page header) -->
             <!-- /.content-header -->
             <!-- Main content -->
@@ -219,7 +232,7 @@ to get the desired effect
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    @*<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
     <!-- Bootstrap -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->

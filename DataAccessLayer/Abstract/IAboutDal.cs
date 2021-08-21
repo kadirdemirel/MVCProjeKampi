@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IAboutDal : IRepository<About>
     {
+        void UpdateValueAbout(int id);
     }
 }

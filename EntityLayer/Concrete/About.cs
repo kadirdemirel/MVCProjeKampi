@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-  public  class About
+    public class About
     {
         [Key]
         public int AboutID { get; set; }
@@ -19,5 +19,6 @@ namespace EntityLayer.Concrete
         public string AboutImage { get; set; }
         [StringLength(100)]
         public string AboutImage2 { get; set; }
+        public bool IsActivated { get; set; }
     }
 }
