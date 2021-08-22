@@ -19,6 +19,7 @@ namespace EntityLayer.Concrete
         [StringLength(100)]
         public string Subject { get; set; }
         public DateTime MessageDate { get; set; }
+        public bool ReadReceipt { get; set; }
 
     }
 }

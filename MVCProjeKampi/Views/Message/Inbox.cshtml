@@ -75,6 +75,9 @@
                                     {
 
 
+
+
+
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -87,9 +90,18 @@
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> @item.MessageContent.Substring(0, 30)...
                                             </td>
-                                            <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyyy")</td>
+                                            @if (item.ReadReceipt == true)
+                                            {
+                                                <td class="mailbox-attachment">Okundu</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="mailbox-attachment">Okunmadı</td>
+                                            }
+
+                                            <td class="mailbox-date">@item.MessageDate.ToString("dd-MM-yyyy")</td>
                                         </tr>
+
                                     }
                                 </tbody>
                             </table>

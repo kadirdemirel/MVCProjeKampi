@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202108211056289_add_talent_level.designer.cs">
       <DependentUpon>202108211056289_add_talent_level.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108220926428_add_message_readreceipt.cs" />
+    <Compile Include="Migrations\202108220926428_add_message_readreceipt.designer.cs">
+      <DependentUpon>202108220926428_add_message_readreceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -196,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108211056289_add_talent_level.resx">
       <DependentUpon>202108211056289_add_talent_level.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108220926428_add_message_readreceipt.resx">
+      <DependentUpon>202108220926428_add_message_readreceipt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
