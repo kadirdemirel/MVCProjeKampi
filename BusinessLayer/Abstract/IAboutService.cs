@@ -9,6 +9,8 @@ namespace BusinessLayer.Abstract
 {
     public interface IAboutService
     {
+        void IsActivatedTrue(About about);
+        void IsActivatedFalse(About about);
         void UpdateValueAbout(int id);
         List<About> GetList();
         void AboutAdd(About about);

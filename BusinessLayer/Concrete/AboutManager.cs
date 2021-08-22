@@ -43,6 +43,16 @@ namespace BusinessLayer.Concrete
             return _aboutDal.List();
         }
 
+        public void IsActivatedFalse(About about)
+        {
+            _aboutDal.Update(about);
+        }
+
+        public void IsActivatedTrue(About about)
+        {
+            _aboutDal.Update(about);
+        }
+
         public void UpdateValueAbout(int id)
         {
             _aboutDal.UpdateValueAbout(id);

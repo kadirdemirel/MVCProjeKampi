@@ -39,5 +39,19 @@ namespace MVCProjeKampi.Controllers
             aboutManager.UpdateValueAbout(id);
             return RedirectToAction("Index");
         }
+        public ActionResult UpdateIsActivatedTrue(int id)
+        {
+            var aboutValue = aboutManager.GetById(id);
+            aboutValue.IsActivated = true;
+            aboutManager.IsActivatedTrue(aboutValue);
+            return RedirectToAction("index");
+        }
+        public ActionResult UpdateIsActivatedFalse(int id)
+        {
+            var aboutValue = aboutManager.GetById(id);
+            aboutValue.IsActivated = false;
+            aboutManager.IsActivatedFalse(aboutValue);
+            return RedirectToAction("index");
+        }
     }
 }
