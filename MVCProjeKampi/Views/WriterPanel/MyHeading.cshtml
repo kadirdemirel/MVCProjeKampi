@@ -1,11 +1,10 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 @{ string color = "";}
-
 <!DOCTYPE html>
 <html>
 
@@ -54,9 +53,7 @@
                             <th style="width: 10%">
                                 Oluşturan Yazar
                             </th>
-                            <th style="width: 10%">
-                                Durum
-                            </th>
+                          
 
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -69,7 +66,7 @@
                         @foreach (var item in Model)
 
                         {
-                          
+
 
                             if (item.Category.CategoryName == "Tiyatro")
                             {
@@ -120,10 +117,7 @@
 
                                     </ul>
                                 </td>
-                                <td>
-
-                                    @item.HeadingStatus
-                                </td>
+                          
 
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
@@ -134,12 +128,12 @@
                                         </i>
                                         İçerikler
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingID">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil
@@ -163,5 +157,5 @@
 </body>
 </html>
 
-<a href="/Heading/AddHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
+<a href="/WriterPanel/NewHeading/" class="btn btn-primary">Yeni Başlık Girişi</a>
 
