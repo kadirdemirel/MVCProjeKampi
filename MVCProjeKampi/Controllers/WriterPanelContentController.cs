@@ -14,7 +14,9 @@ namespace MVCProjeKampi.Controllers
         // GET: WriterPanelContent
         public ActionResult MyContent()
         {
-            var contentValues = contentManager.GetListByWriter();
+            int id;
+            id = 1;
+            var contentValues = contentManager.GetListByWriter(id);
 
             return View(contentValues);
         }
