@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MVCProjeKampi.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         LoginManager loginManager = new LoginManager();
