@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -58,6 +59,14 @@ namespace MVCProjeKampi.Controllers
                 return RedirectToAction("WriterLogin");
             }
             return View();
+        }
+        [HttpPost]
+        public JsonResult AjaxMethod(string response)
+        {
+            RECaptcha recaptcha = new RECaptcha();
+            string url = "https://www.google.com/recaptcha/api/siteverify?secret=" + recaptcha.Secret + "&response=" + response;
+            recaptcha.Response = (new WebClient()).DownloadString(url);
+            return Json(recaptcha);
         }
     }
 }

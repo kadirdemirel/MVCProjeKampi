@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityLayer.Concrete.RECaptcha
 @{
     Layout = null;
 }
@@ -16,7 +16,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-form-20/css/style.css">
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
 
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-form-20/images/bg.jpg);">
     <section class="ftco-section">
@@ -30,8 +39,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
                         <h3 class="mb-4 text-center">Hesabınız var mı ?</h3>
-                    @using (Html.BeginForm("WriterLogin","Login",FormMethod.Post))
-                    {
+                        @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
+                        {
 
 
                             <div class="form-group">
@@ -41,8 +50,56 @@
                                 <input id="password-field" name="WriterPassword" type="password" class="form-control" placeholder="Şifre" required>
                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
+                            <div id="dvCaptcha">
+
+                            </div>
+                                <input type="hidden" id="hfCaptcha" />
+                                <span id="rfvCaptcha" class="error" style="display:none">Captcha validation is required.</span>
+                   
+                            <br />
+                            @*<input type="button" id="btnSubmit" value="Submit" />*@
+
+
+                            <script type="text/javascript">
+                                var onloadCallback = function () {
+                                    grecaptcha.render('dvCaptcha', {
+                                        /**/
+                                        'sitekey': '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+                                        /**/
+                                        'callback': function (response) {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Login/AjaxMethod",
+                                                data: "{response: '" + response + "'}",
+                                                contentType: "application/json; charset=utf-8",
+                                                dataType: "json",
+                                                success: function (r) {
+                                                    var captchaResponse = jQuery.parseJSON(r.Response);
+                                                    if (captchaResponse.success) {
+                                                        $("#hfCaptcha").val(captchaResponse.success);
+                                                        $("#rfvCaptcha").hide();
+                                                    } else {
+                                                        $("#hfCaptcha").val("");
+                                                        $("#rfvCaptcha").show();
+                                                        var error = captchaResponse["error-codes"][0];
+                                                        $("#rfvCaptcha").html("RECaptcha error. " + error);
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+                                };
+                                $(function () {
+                                    $("#btnSubmit").click(function () {
+                                        $("#rfvCaptcha").hide();
+                                        if ($("#hfCaptcha").val() == "") {
+                                            $("#rfvCaptcha").show();
+                                        }
+                                    });
+                                });
+                            </script>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
+                                <button type="submit" id="btnSubmit" class="form-control btn btn-primary submit px-3">Giriş Yap</button>
                             </div>
                             <div class="form-group d-md-flex">
                                 <div class="w-50">
@@ -56,13 +113,18 @@
                                     <a href="#" style="color: #fff">Şifremi Unuttum</a>
                                 </div>
                             </div>
-                    } 
+
+                        }
                         <p class="w-100 text-center">&mdash; Veya Sosyal Medya İle Giriş Yapın &mdash;</p>
                         <div class="social d-flex text-center">
                             <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
                             <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
                         </div>
-                   
+                        <br />
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -73,6 +135,10 @@
     <script src="~/AdminLTE-3.0.4/login-form-20/js/popper.js"></script>
     <script src="~/AdminLTE-3.0.4/login-form-20/js/bootstrap.min.js"></script>
     <script src="~/AdminLTE-3.0.4/login-form-20/js/main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 </body>
 </html>
