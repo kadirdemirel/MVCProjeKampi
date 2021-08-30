@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -6,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
-
+using EntityLayer.Concrete;
 namespace BusinessLayer.Concrete
 {
     public class AdminManager : RoleProvider,IAdminService
     {
+     
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
             throw new NotImplementedException();
         }
+
+       
+      
 
         public override void CreateRole(string roleName)
         {
@@ -38,6 +43,7 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+       
         public override string[] GetRolesForUser(string username)
         {
             Context context = new Context();

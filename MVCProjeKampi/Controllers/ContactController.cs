@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,17 +28,49 @@ namespace MVCProjeKampi.Controllers
         {
             var contactValues = contactManager.GetById(id);
             return View(contactValues);
+
         }
         public PartialViewResult MessageListMenu()
         {
-            var messageList = messageManager.GetListInbox();
-            var messageList2 = messageManager.GetListSendBox();
+
+            //var messageList = messageManager.GetListInbox();
+            //var messageList2 = messageManager.GetListSendBox();
             var contactValues = contactManager.GetList();
-        
-            ViewBag.value = messageList.Count();
-            ViewBag.value2 = messageList2.Count();
+
+            //ViewBag.value = messageList.Count();
+            //ViewBag.value2 = messageList2.Count();
             ViewBag.value3 = contactValues.Count();
             return PartialView();
+        }
+        [HttpGet]
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(Contact contact)
+        {
+
+            ContactValidator contactValidator = new ContactValidator();
+            ValidationResult validationResult = contactValidator.Validate(contact);
+            if (validationResult.IsValid)
+            {
+                contact.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                contactManager.ContactAdd(contact);
+                return RedirectToAction("HomePage", "Home");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+
+
+
         }
     }
 }

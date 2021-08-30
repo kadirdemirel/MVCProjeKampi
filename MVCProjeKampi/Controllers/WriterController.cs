@@ -26,6 +26,7 @@ namespace MVCProjeKampi.Controllers
         {
             return View();
         }
+    
         [HttpPost]
         public ActionResult AddWriter(Writer writer)
         {
@@ -69,6 +70,32 @@ namespace MVCProjeKampi.Controllers
                 }
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(Writer writer)
+        {
+
+            ValidationResult validationResult = validationRules.Validate(writer);
+            if (validationResult.IsValid)
+            {
+                writerManager.WriterAdd(writer);
+                return RedirectToAction("HomePage","Home");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+
         }
     }
 }

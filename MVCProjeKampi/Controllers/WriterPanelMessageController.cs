@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using FluentValidation.Results;
 using System;
@@ -10,28 +11,34 @@ using System.Web.Mvc;
 
 namespace MVCProjeKampi.Controllers
 {
+  
     public class WriterPanelMessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         ContactManager contactManager = new ContactManager(new EfContactDal());
         MessageValidator validationRules = new MessageValidator();
+
         // GET: WriterPanelMessage
+        [Authorize]
         public ActionResult Inbox()
         {
-            var messageList = messageManager.GetListInbox();
+            string p;
+            p = (string)Session["WriterMail"];
+            var messageList = messageManager.GetListInbox(p);
 
 
             return View(messageList);
         }
         public PartialViewResult MessageListMenu()
         {
-          
+
             return PartialView();
         }
         public ActionResult SendBox()
         {
-            var messageList = messageManager.GetListSendBox();
-
+            string p;
+            p = (string)Session["WriterMail"];
+            var messageList = messageManager.GetListSendBox(p);
 
             return View(messageList);
         }
@@ -55,10 +62,12 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewMessage(EntityLayer.Concrete.Message message)
         {
+            string sender;
+            sender = (string)Session["WriterMail"];
             ValidationResult validationResult = validationRules.Validate(message);
             if (validationResult.IsValid)
             {
-                message.SenderMail = "gizem@gmail.com";
+                message.SenderMail = sender;
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.MessageAdd(message);
                 return RedirectToAction("SendBox");

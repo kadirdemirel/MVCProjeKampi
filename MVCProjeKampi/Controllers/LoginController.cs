@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace MVCProjeKampi.Controllers
     public class LoginController : Controller
     {
         LoginManager loginManager = new LoginManager();
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -24,17 +26,28 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            try
+            //try
+            //{
+            //    loginManager.Login(admin);
+            //    return RedirectToAction("Index", "AdminCategory");
+            //}
+            //catch (Exception)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            //return View();
+            Context context = new Context();
+            var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+            if (adminUserInfo != null)
             {
-                loginManager.Login(admin);
+                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
+                Session["AdminUserName"] = adminUserInfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
-            catch (Exception)
+            else
             {
                 return RedirectToAction("Index");
             }
-            return View();
-
 
         }
         [HttpGet]
@@ -45,8 +58,9 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            Context context = new Context();
-            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            //Context context = new Context();
+            //var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+            var writerUserInfo = writerLoginManager.GetWriter(writer.WriterMail, writer.WriterPassword);
             if (writerUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);
@@ -67,6 +81,12 @@ namespace MVCProjeKampi.Controllers
             string url = "https://www.google.com/recaptcha/api/siteverify?secret=" + recaptcha.Secret + "&response=" + response;
             recaptcha.Response = (new WebClient()).DownloadString(url);
             return Json(recaptcha);
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Home");
         }
     }
 }

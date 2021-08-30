@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
+
 
 namespace MVCProjeKampi.Controllers
 {
@@ -19,7 +19,9 @@ namespace MVCProjeKampi.Controllers
         [Authorize]
         public ActionResult Inbox()
         {
-            var messageList = messageManager.GetListInbox();
+            string p;
+            p = (string)Session["AdminUserName"];
+            var messageList = messageManager.GetListInbox(p);
 
 
             return View(messageList);
@@ -27,7 +29,9 @@ namespace MVCProjeKampi.Controllers
 
         public ActionResult SendBox()
         {
-            var messageList = messageManager.GetListSendBox();
+            string p;
+            p = (string)Session["AdminUserName"];
+            var messageList = messageManager.GetListSendBox(p);
 
 
             return View(messageList);

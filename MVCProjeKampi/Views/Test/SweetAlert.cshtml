@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "SweetAlert";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<button class="btn btn-primary" id="btn1">Button1</button>
+
+<script>
+    $('#btn1').click(function () {
+        swal("Hello world !");
+    });
+</script>

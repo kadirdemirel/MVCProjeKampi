@@ -84,7 +84,7 @@
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
                                             <td class="mailbox-name"><a href="/WriterPanelMessage/GetSendBoxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> @item.MessageContent.Substring(0, 30)...
+                                                <b>@item.Subject</b> @item.MessageContent.Substring(0, Math.Min(item.MessageContent.Length, 240))...
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyy")</td>

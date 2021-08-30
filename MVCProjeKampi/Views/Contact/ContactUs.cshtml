@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("ContactUs", "Contact", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(r => r.UserName, new { @class = "form-control" })
+
+    <br /><br />
+    @Html.Label("Açıklamayı Yazınız")
+    @Html.TextBoxFor(r => r.UserMail, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Açıklamayı Yazınız")
+    @Html.TextBoxFor(r => r.Subject, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Açıklamayı Yazınız")
+    @Html.TextAreaFor(r => r.Message, new { @class = "form-control" })
+    <br /><br />
+    <button class="btn btn-outline-info">Kaydet</button>
+
+
+</div>
+}

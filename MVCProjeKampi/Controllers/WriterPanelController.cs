@@ -7,18 +7,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using BusinessLayer.ValidationRules.FluentValidation;
 
 namespace MVCProjeKampi.Controllers
 {
+  
     public class WriterPanelController : Controller
     {
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         Context context = new Context();
-
+        WriterValidator validationRules = new WriterValidator();
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        [Authorize]
+        [HttpGet]
+        public ActionResult WriterProfile(int id=0)
         {
+            string p = (string)Session["WriterMail"];
+            id = context.Writers.Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
+            var writerValue = writerManager.GetById(id);
+            return View(writerValue);
+        }
+        [HttpPost]
+        public ActionResult EditWriter(Writer writer)
+        {
+            ValidationResult validationResult = validationRules.Validate(writer);
+            if (validationResult.IsValid)
+            {
+                writerManager.WriterUpdate(writer);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
         public ActionResult MyHeading(string p)
@@ -80,7 +109,11 @@ namespace MVCProjeKampi.Controllers
             headingManager.HeadingDelete(headingValue);
             return RedirectToAction("MyHeading");
         }
-
+        public ActionResult AllHeading(int sayfa = 1)
+        {
+            var headings = headingManager.GetList().ToPagedList(sayfa, 4);
+            return View(headings);
+        }
 
     }
 }
