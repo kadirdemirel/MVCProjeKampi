@@ -21,6 +21,8 @@ namespace MVCProjeKampi.Controllers
         {
             string p;
             p = (string)Session["AdminUserName"];
+            var inbox = messageManager.GetListInbox(p);
+            ViewBag.value = inbox.Count();
             var messageList = messageManager.GetListInbox(p);
 
 

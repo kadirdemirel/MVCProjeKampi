@@ -32,13 +32,17 @@ namespace MVCProjeKampi.Controllers
         }
         public PartialViewResult MessageListMenu()
         {
+            string p;
+            p = (string)Session["AdminUserName"];
+            var inbox = messageManager.GetListInbox(p);
+            ViewBag.value = inbox.Count();
 
-            //var messageList = messageManager.GetListInbox();
-            //var messageList2 = messageManager.GetListSendBox();
+           
+            var messageList2 = messageManager.GetListSendBox(p);
             var contactValues = contactManager.GetList();
 
-            //ViewBag.value = messageList.Count();
-            //ViewBag.value2 = messageList2.Count();
+          
+            ViewBag.value2 = messageList2.Count();
             ViewBag.value3 = contactValues.Count();
             return PartialView();
         }
