@@ -26,27 +26,14 @@ namespace MVCProjeKampi.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            //try
-            //{
-            //    loginManager.Login(admin);
-            //    return RedirectToAction("Index", "AdminCategory");
-            //}
-            //catch (Exception)
-            //{
-            //    return RedirectToAction("Index");
-            //}
-            //return View();
-            Context context = new Context();
-            var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-           
-            if (adminUserInfo != null)
-            {
 
-                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
-                Session["AdminUserName"] = adminUserInfo.AdminUserName;
+         
+            try
+            {
+                loginManager.Login(admin);
                 return RedirectToAction("Index", "AdminCategory");
             }
-            else
+            catch (Exception e)
             {
                 return RedirectToAction("Index");
             }

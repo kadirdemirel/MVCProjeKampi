@@ -2668,6 +2668,7 @@
     <Content Include="Views\Authorization\EditAdmin.cshtml" />
     <Content Include="Views\Talent\AddTalent.cshtml" />
     <Content Include="Views\Talent\UpdateTalent.cshtml" />
+    <Content Include="Views\Chart\GetData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

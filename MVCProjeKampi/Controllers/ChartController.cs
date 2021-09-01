@@ -1,4 +1,5 @@
-﻿using MVCProjeKampi.Models;
+﻿using DataAccessLayer.Concrete;
+using MVCProjeKampi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,14 @@ namespace MVCProjeKampi.Controllers
                 CategoryCount = 1
             });
             return categories;
+        }
+        public ActionResult GetData()
+        {
+            Context context = new Context();
+            var query = context.Headings.Include("Category")
+                 .GroupBy(p => p.Category.CategoryName)
+                 .Select(g => new { name = g.Key, count = g.Sum(w => w.Category.Headings.Count()) }).ToList();
+            return Json(query, JsonRequestBehavior.AllowGet);
         }
     }
 }

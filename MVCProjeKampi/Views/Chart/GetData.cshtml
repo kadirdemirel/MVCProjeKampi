@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "GetData";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<script>
+
+
+
+    $(document).ready(function () {
+        $.getJSON("/Chart/GetData/", function (data) {
+            var Names = []
+            var Qts = []
+            for (var i = 0; i < data.length; i++) {
+                Names.push(data[i].name);
+                Qts.push(data[i].count);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Monthly Average Temperature'
+                },
+                subtitle: {
+                    text: 'Source: WorldClimate.com'
+                },
+                xAxis: {
+                    categories: Names
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: 'Trend',
+                    data: Qts
+                }]
+            });
+        });
+    });
+
+
+</script>
+

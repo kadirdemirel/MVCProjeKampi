@@ -18,18 +18,18 @@ namespace BusinessLayer.Concrete
         {
             Context context = new Context();
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-            if(adminUserInfo!=null)
+            if (adminUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
-                var sessionValue = HttpContext.Current.Session["AdminUserName"];
-                sessionValue = adminUserInfo.AdminUserName;//Oturum yönetimi
+                HttpContext.Current.Session["AdminUserName"] = adminUserInfo.AdminUserName;
+                
             }
             else
             {
                 throw new Exception();
             }
-         
-           
+
+
         }
 
 
