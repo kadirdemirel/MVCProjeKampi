@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Talent
+@{
+    ViewBag.Title = "AddTalent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Yetenek Ekle</h1>
+@using (Html.BeginForm("AddTalent", "Talent", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Yetenek Adı")
+    @Html.TextBoxFor(r => r.TalentName, new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(r => r.HeadingName)*@
+    <br />
+    @Html.Label("Yetenek Seviyesi")
+    @Html.TextBoxFor(r => r.TalentLevel, new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(r => r.HeadingName)*@
+    <br />
+    @Html.Label("Öğrenci")
+    @Html.DropDownListFor(r => r.StudentId, (List<SelectListItem>)ViewBag.valueBag, new { @class = "form-control" })
+    <br />
+
+
+
+    <button class="btn btn-outline-info">Yetenek Ekle</button>
+
+</div>
+}
+

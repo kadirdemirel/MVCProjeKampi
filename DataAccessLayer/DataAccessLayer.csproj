@@ -142,6 +142,10 @@
     <Compile Include="Migrations\202108220926428_add_message_readreceipt.designer.cs">
       <DependentUpon>202108220926428_add_message_readreceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108301727549_add_isactivated_admin.cs" />
+    <Compile Include="Migrations\202108301727549_add_isactivated_admin.designer.cs">
+      <DependentUpon>202108301727549_add_isactivated_admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108220926428_add_message_readreceipt.resx">
       <DependentUpon>202108220926428_add_message_readreceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108301727549_add_isactivated_admin.resx">
+      <DependentUpon>202108301727549_add_isactivated_admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

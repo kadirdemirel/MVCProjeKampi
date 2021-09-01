@@ -49,7 +49,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="main-info w3l">
 
             <div class="main-row">
-                @for (int i=0;i<Model.Count;i++)
+                @for (int i = 0; i < Model.Count; i++)
                 {
 
 
@@ -64,22 +64,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-6 skills-right bar_group">
 
                         <div class='bar_group__bar thin' label='@Model[i].TalentName &nbsp;&nbsp; 80%' value='200'></div>
-                    
+
                     </div>
+
                     //bar-js
                     <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>
                     <div class="social-icons agileits">
                         <ul>
-                            <li><a href="#"></a></li>
+                            @*<li><a href="#"></a></li>
                             <li><a href="#" class="fb"></a></li>
                             <li><a href="#" class="be"></a></li>
-                            <li><a href="#" class="gg"></a></li>
+                            <li><a href="#" class="gg"></a></li>*@
                         </ul>
                     </div>
+
                     <div class="clear"> </div>
                 }
-                </div>
-          
+            </div>
+            <a href="/Talen/AddTalent/" class="btn btn-info">Yeni Yetenek</a>
         </div>
 
         <!-- copyright -->

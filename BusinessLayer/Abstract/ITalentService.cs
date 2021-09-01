@@ -11,5 +11,8 @@ namespace BusinessLayer.Abstract
     {
         List<Talent> GetList();
         Talent GetById(int talentId);
+        void AddTalent(Talent talent);
+        void DeleteTalent(Talent talent);
+        void UpdateTalent(Talent talent);
     }
 }

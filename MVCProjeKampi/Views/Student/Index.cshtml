@@ -33,18 +33,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--//circle-chart-->
     <!--ResponsiveTabs-->
     <script src="~/AdminLTE-3.0.4/web/js/easyResponsiveTabs.js" type="text/javascript"></script>
-    
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#horizontalTab').easyResponsiveTabs({
-                    type: 'default', //Types: default, vertical, accordion
-                    width: 'auto', //auto or any width like 600px
-                    fit: true   // 100% fit in a container
-                });
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
             });
-        </script>
-        <!--//ResponsiveTabs-->
+        });
+    </script>
+    <!--//ResponsiveTabs-->
 </head>
 <body>
     <!-- main -->
@@ -71,10 +71,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         {
 
 
-                            <div class='bar_group__bar thin' label='@item2.TalentName &nbsp;&nbsp; @item2.TalentLevel' value='@item2.TalentLevel'></div>
 
+
+
+                            <div class='bar_group__bar thin' label='@item2.TalentName &nbsp;&nbsp; @item2.TalentLevel' value='@item2.TalentLevel'></div>
                         }
                     </div>
+
+                    <a href="/Talent/UpdateTalent/@item.Talents" class="btn btn-info">Güncelle</a>
+                    <a href="/Talent/AddTalent/" class="btn btn-info">Yeni Yetenek</a>
+
+
+
+
 
                     <!--bar-js-->
                     <script src="~/AdminLTE-3.0.4/web/js/bars.js"></script>

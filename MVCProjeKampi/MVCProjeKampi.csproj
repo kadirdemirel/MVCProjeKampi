@@ -2666,6 +2666,8 @@
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\AddAdmin.cshtml" />
     <Content Include="Views\Authorization\EditAdmin.cshtml" />
+    <Content Include="Views\Talent\AddTalent.cshtml" />
+    <Content Include="Views\Talent\UpdateTalent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

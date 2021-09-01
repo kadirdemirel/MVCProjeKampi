@@ -41,5 +41,19 @@ namespace MVCProjeKampi.Controllers
             managerManager.AdminUpdate(admin);
             return RedirectToAction("Index");
         }
+        public ActionResult UpdateIsActivatedTrue(int id)
+        {
+            var authValue = managerManager.GetById(id);
+            authValue.IsActivated = true;
+            managerManager.IsActivatedTrue(authValue);
+            return RedirectToAction("Index");
+        }
+        public ActionResult UpdateIsActivatedFalse(int id)
+        {
+            var authValue = managerManager.GetById(id);
+            authValue.IsActivated = false;
+            managerManager.IsActivatedFalse(authValue);
+            return RedirectToAction("Index");
+        }
     }
 }

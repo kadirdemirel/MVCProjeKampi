@@ -41,5 +41,14 @@ namespace BusinessLayer.Concrete
         {
             return _adminDal.List();
         }
+        public void IsActivatedFalse(Admin admin)
+        {
+            _adminDal.Update(admin);
+        }
+
+        public void IsActivatedTrue(Admin admin)
+        {
+            _adminDal.Update(admin);
+        }
     }
 }

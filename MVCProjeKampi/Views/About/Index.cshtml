@@ -10,17 +10,19 @@
     <tr>
         <th>Id</th>
         <th>Hakkımda Başlığı</th>
+        <th>Hakkımda Başlığı</th>
         <th>Aktif Yap</th>
         <th>Pasif Yap</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.AboutID</td>
-            <td>Başlık</td>
-            <td><a href="/About/UpdateIsActivatedTrue/@item.AboutID" class="btn btn-warning">Aktif Yap</a></td>
-            <td><a href="/About/UpdateIsActivatedFalse/@item.AboutID" class="btn btn-danger">Pasif Yap</a></td>
-        </tr>
+<tr>
+    <td>@item.AboutID</td>
+    <td>@item.AboutDetails1</td>
+    <td>@item.AboutDetails2</td>
+    <td><a href="/About/UpdateIsActivatedTrue/@item.AboutID" class="btn btn-warning">Aktif Yap</a></td>
+    <td><a href="/About/UpdateIsActivatedFalse/@item.AboutID" class="btn btn-danger">Pasif Yap</a></td>
+</tr>
     }
 </table>
 

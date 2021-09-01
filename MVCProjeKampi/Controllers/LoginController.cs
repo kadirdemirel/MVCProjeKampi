@@ -38,8 +38,10 @@ namespace MVCProjeKampi.Controllers
             //return View();
             Context context = new Context();
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
+           
             if (adminUserInfo != null)
             {
+
                 FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
                 Session["AdminUserName"] = adminUserInfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");

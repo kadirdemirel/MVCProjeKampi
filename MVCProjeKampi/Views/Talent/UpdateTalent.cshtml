@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Talent
+@{
+    ViewBag.Title = "UpdateTalent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Yetenek Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditHeading", "Heading", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Yetenek ID")
+        @Html.TextBoxFor(x => x.TalentId, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yetenek Adı")
+        @Html.TextBoxFor(x => x.TalentName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yetenek Seviyesi")
+        @Html.TextBoxFor(x => x.TalentLevel, new { @class = "form-control" })
+        <br />
+     
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.StudentId, (List<SelectListItem>)ViewBag.valueBag, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
