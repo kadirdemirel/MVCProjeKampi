@@ -168,6 +168,8 @@
     </Compile>
     <Compile Include="Models\Calender.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\TalentChart.cs" />
+    <Compile Include="Models\WriterChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
@@ -2887,6 +2889,8 @@
     <Content Include="Views\Talent\UpdateTalent.cshtml" />
     <Content Include="Views\Chart\GetData.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Chart\TalentLineChart.cshtml" />
+    <Content Include="Views\Chart\WriterColumnChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

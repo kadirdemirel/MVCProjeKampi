@@ -55,5 +55,51 @@ namespace MVCProjeKampi.Controllers
                  .Select(g => new { name = g.Key, count = g.Sum(w => w.Category.Headings.Count()) }).ToList();
             return Json(query, JsonRequestBehavior.AllowGet);
         }
+        public List<TalentChart> TalentList()
+        {
+            List<TalentChart> talentCharts = new List<TalentChart>();
+            using (var context = new Context())
+            {
+                talentCharts = context.Talents.Select(c => new TalentChart
+                {
+                    TalentName = c.TalentName,
+                    TalentLevel = c.TalentLevel
+                }).ToList();
+            }
+
+            return talentCharts;
+        }
+
+        public ActionResult TalentChart()
+        {
+            return Json(TalentList(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult TalentLineChart()
+        {
+            return View();
+        }
+        public List<WriterChart> WriterList()
+        {
+            List<WriterChart> writerCharts = new List<WriterChart>();
+            using (var context = new Context())
+            {
+                writerCharts = context.Writers.Select(c => new WriterChart
+                {
+                    WriterName = c.UserName,
+                    WriterCount = c.Headings.Count()
+                }).ToList();
+            }
+
+            return writerCharts;
+        }
+
+        public ActionResult WriterChart()
+        {
+            return Json(WriterList(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult WriterColumnChart()
+        {
+            return View();
+        }
     }
 }

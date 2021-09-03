@@ -13,8 +13,8 @@ namespace EntityLayer.Concrete
         public int TalentId { get; set; }
         [StringLength(25)]
         public string TalentName { get; set; }
-        [StringLength(25)]
-        public string TalentLevel { get; set; }
+
+        public int TalentLevel { get; set; }
         public int StudentId { get; set; }
         public virtual Student Student { get; set; }
     }

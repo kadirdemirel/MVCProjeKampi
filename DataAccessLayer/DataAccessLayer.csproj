@@ -169,6 +169,10 @@
     <Compile Include="Migrations\202109031159057_add_lastheading.designer.cs">
       <DependentUpon>202109031159057_add_lastheading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109031401143_add_talent_level1.cs" />
+    <Compile Include="Migrations\202109031401143_add_talent_level1.designer.cs">
+      <DependentUpon>202109031401143_add_talent_level1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -248,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109031159057_add_lastheading.resx">
       <DependentUpon>202109031159057_add_lastheading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109031401143_add_talent_level1.resx">
+      <DependentUpon>202109031401143_add_talent_level1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
