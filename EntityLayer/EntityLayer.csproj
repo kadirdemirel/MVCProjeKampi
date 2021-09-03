@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Concrete\About.cs" />
     <Compile Include="Concrete\Admin.cs" />
+    <Compile Include="Concrete\AppointmentData.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\RECaptcha.cs" />
     <Compile Include="Concrete\Contact.cs" />

@@ -22,6 +22,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<User> Users { get; set; }
         public DbSet<Talent> Talents { get; set; }
         public DbSet<Student> Students { get; set; }
-
+        public Context() : base("name=Context") { }
     }
 }

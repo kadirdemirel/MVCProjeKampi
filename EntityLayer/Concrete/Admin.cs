@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-   public class Admin
+    public class Admin
     {
         [Key]
         public int AdminId { get; set; }
@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         public string AdminUserName { get; set; }
         [StringLength(50)]
         public string AdminPassword { get; set; }
+
         [StringLength(1)]
         public string AdminRole { get; set; }
         public bool IsActivated { get; set; }

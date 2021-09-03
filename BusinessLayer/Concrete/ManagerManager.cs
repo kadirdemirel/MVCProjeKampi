@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,7 @@ namespace BusinessLayer.Concrete
         }
         public void AdminAdd(Admin admin)
         {
+        
             _adminDal.Insert(admin);
         }
 
@@ -50,5 +53,7 @@ namespace BusinessLayer.Concrete
         {
             _adminDal.Update(admin);
         }
+
+      
     }
 }
