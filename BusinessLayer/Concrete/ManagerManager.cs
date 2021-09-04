@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
@@ -20,7 +21,7 @@ namespace BusinessLayer.Concrete
         }
         public void AdminAdd(Admin admin)
         {
-        
+
             _adminDal.Insert(admin);
         }
 
@@ -54,6 +55,6 @@ namespace BusinessLayer.Concrete
             _adminDal.Update(admin);
         }
 
-      
+        
     }
 }

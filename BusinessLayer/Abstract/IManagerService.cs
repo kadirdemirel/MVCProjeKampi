@@ -17,7 +17,8 @@ namespace BusinessLayer.Abstract
         void AdminUpdate(Admin admin);
         void IsActivatedTrue(Admin admin);
         void IsActivatedFalse(Admin admin);
-       
+        
+
 
     }
 }

@@ -61,5 +61,11 @@ namespace MVCProjeKampi.Controllers
             talentManager.UpdateTalent(talent);
             return RedirectToAction("Index", "Student");
         }
+        public ActionResult DeleteTalent(int id)
+        {
+            var talentValue = talentManager.GetById(id);
+            talentManager.DeleteTalent(talentValue);
+            return RedirectToAction("Index", "Student");
+        }
     }
 }

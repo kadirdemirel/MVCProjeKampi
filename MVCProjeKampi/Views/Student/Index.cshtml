@@ -65,23 +65,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     </div>
                     <h3 class="title">Yetenekler</h3>
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="col-md-12 skills-right bar_group">
+                                @foreach (var item2 in @item.Talents)
+                                {
 
-                    <div class="col-md-6 skills-right bar_group">
-                        @foreach (var item2 in @item.Talents)
-                        {
 
 
+                                    <div class='bar_group__bar thin' label='@item2.TalentName &nbsp;&nbsp; @item2.TalentLevel' value='@item2.TalentLevel'>
+
+                                    </div>
 
 
-                            <div class='bar_group__bar thin' label='@item2.TalentName &nbsp;&nbsp; @item2.TalentLevel' value='@item2.TalentLevel'></div>
-                        }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            @foreach (var item2 in @item.Talents)
+                            {
+                                <div class="col-md-12 skills-right" style="clear:both; margin-bottom:41px">
+                                    <a href="/Talent/DeleteTalent/@item2.TalentId" class="btn btn-info">Yetenek Sil</a>
+                                    <a href="/Talent/UpdateTalent/@item2.TalentId" class="btn btn-info">Yetenek Güncelle</a>
+
+                                </div>
+                            }
+                            </div>
                     </div>
 
 
+
+
+
+
+
+
+
+                    <div class="clear"> </div>
                     <a href="/Talent/AddTalent/" class="btn btn-info">Yeni Yetenek</a>
-           
-
-
 
 
                     <!--bar-js-->

@@ -173,6 +173,14 @@
     <Compile Include="Migrations\202109031401143_add_talent_level1.designer.cs">
       <DependentUpon>202109031401143_add_talent_level1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109032029446_add_passwordhash_salt.cs" />
+    <Compile Include="Migrations\202109032029446_add_passwordhash_salt.designer.cs">
+      <DependentUpon>202109032029446_add_passwordhash_salt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109032051344_add_password_update2.cs" />
+    <Compile Include="Migrations\202109032051344_add_password_update2.designer.cs">
+      <DependentUpon>202109032051344_add_password_update2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -255,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109031401143_add_talent_level1.resx">
       <DependentUpon>202109031401143_add_talent_level1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109032029446_add_passwordhash_salt.resx">
+      <DependentUpon>202109032029446_add_passwordhash_salt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109032051344_add_password_update2.resx">
+      <DependentUpon>202109032051344_add_password_update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
