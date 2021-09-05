@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.ImageFile
+@{
+    ViewBag.Title = "ImageAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Görsel Ekleme Sayfası</h2>
+<br />
+<br />
+@using (Html.BeginForm("ImageAdd", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.Label("Görsel Başlığı")
+        @Html.TextBoxFor(x => x.ImageName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Görsel Seç")
+        <input type="file" name="ImagePath" />
+        <br />
+        <br />
+
+        <button class="btn btn-info">Görsel Ekle</button>
+    </div>
+}
+

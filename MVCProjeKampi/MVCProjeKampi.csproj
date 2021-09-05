@@ -2904,6 +2904,7 @@
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\Chart\TalentLineChart.cshtml" />
     <Content Include="Views\Chart\WriterColumnChart.cshtml" />
+    <Content Include="Views\Gallery\ImageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
