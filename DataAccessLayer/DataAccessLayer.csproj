@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202109032051344_add_password_update2.designer.cs">
       <DependentUpon>202109032051344_add_password_update2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109070748104_delete_lastheading.cs" />
+    <Compile Include="Migrations\202109070748104_delete_lastheading.designer.cs">
+      <DependentUpon>202109070748104_delete_lastheading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -269,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109032051344_add_password_update2.resx">
       <DependentUpon>202109032051344_add_password_update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109070748104_delete_lastheading.resx">
+      <DependentUpon>202109070748104_delete_lastheading.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
